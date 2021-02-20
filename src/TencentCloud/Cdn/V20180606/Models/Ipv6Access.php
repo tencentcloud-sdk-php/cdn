@@ -18,24 +18,24 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * Ipv6访问配置
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method string getSwitch() 获取域名是否开启ipv6访问功能，on或off。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSwitch(string $Switch) 设置域名是否开启ipv6访问功能，on或off。
+注意：此字段可能返回 null，表示取不到有效值。
  */
-class DisableCachesRequest extends AbstractModel
+class Ipv6Access extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 域名是否开启ipv6访问功能，on或off。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Urls;
+    public $Switch;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @param string $Switch 域名是否开启ipv6访问功能，on或off。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -50,8 +50,8 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
+            $this->Switch = $param["Switch"];
         }
     }
 }

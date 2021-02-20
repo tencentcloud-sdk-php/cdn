@@ -18,47 +18,43 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * SCDN攻击数据Top URL展示
+ * 高级配置集合
  *
- * @method string getUrl() 获取Top数据的URL
- * @method void setUrl(string $Url) 设置Top数据的URL
- * @method integer getValue() 获取数值
- * @method void setValue(integer $Value) 设置数值
- * @method string getTime() 获取时间
- * @method void setTime(string $Time) 设置时间
- * @method string getDomain() 获取域名
+ * @method string getName() 获取高级配置名称。
 注意：此字段可能返回 null，表示取不到有效值。
- * @method void setDomain(string $Domain) 设置域名
+ * @method void setName(string $Name) 设置高级配置名称。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method string getValue() 获取是否支持高级配置，
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setValue(string $Value) 设置是否支持高级配置，
+on：支持
+off：不支持
 注意：此字段可能返回 null，表示取不到有效值。
  */
-class ScdnTopUrlData extends AbstractModel
+class AdvanceConfig extends AbstractModel
 {
     /**
-     * @var string Top数据的URL
+     * @var string 高级配置名称。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Url;
+    public $Name;
 
     /**
-     * @var integer 数值
+     * @var string 是否支持高级配置，
+on：支持
+off：不支持
+注意：此字段可能返回 null，表示取不到有效值。
      */
     public $Value;
 
     /**
-     * @var string 时间
-     */
-    public $Time;
-
-    /**
-     * @var string 域名
+     * @param string $Name 高级配置名称。
 注意：此字段可能返回 null，表示取不到有效值。
-     */
-    public $Domain;
-
-    /**
-     * @param string $Url Top数据的URL
-     * @param integer $Value 数值
-     * @param string $Time 时间
-     * @param string $Domain 域名
+     * @param string $Value 是否支持高级配置，
+on：支持
+off：不支持
 注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
@@ -74,20 +70,12 @@ class ScdnTopUrlData extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Url",$param) and $param["Url"] !== null) {
-            $this->Url = $param["Url"];
+        if (array_key_exists("Name",$param) and $param["Name"] !== null) {
+            $this->Name = $param["Name"];
         }
 
         if (array_key_exists("Value",$param) and $param["Value"] !== null) {
             $this->Value = $param["Value"];
-        }
-
-        if (array_key_exists("Time",$param) and $param["Time"] !== null) {
-            $this->Time = $param["Time"];
-        }
-
-        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
-            $this->Domain = $param["Domain"];
         }
     }
 }

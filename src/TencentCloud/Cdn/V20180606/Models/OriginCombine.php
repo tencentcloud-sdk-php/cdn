@@ -18,24 +18,20 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * 合并回源配置项
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method string getSwitch() 获取on|off 是否开启合并回源
+ * @method void setSwitch(string $Switch) 设置on|off 是否开启合并回源
  */
-class DisableCachesRequest extends AbstractModel
+class OriginCombine extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string on|off 是否开启合并回源
      */
-    public $Urls;
+    public $Switch;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @param string $Switch on|off 是否开启合并回源
      */
     function __construct()
     {
@@ -50,8 +46,8 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("Switch",$param) and $param["Switch"] !== null) {
+            $this->Switch = $param["Switch"];
         }
     }
 }

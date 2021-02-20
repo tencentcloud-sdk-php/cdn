@@ -18,24 +18,28 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * Waf 规则信息
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method string getAttackType() 获取攻击类型
+ * @method void setAttackType(string $AttackType) 设置攻击类型
+ * @method string getOperate() 获取防护措施，observe
+ * @method void setOperate(string $Operate) 设置防护措施，observe
  */
-class DisableCachesRequest extends AbstractModel
+class ScdnWafRule extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 攻击类型
      */
-    public $Urls;
+    public $AttackType;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 防护措施，observe
+     */
+    public $Operate;
+
+    /**
+     * @param string $AttackType 攻击类型
+     * @param string $Operate 防护措施，observe
      */
     function __construct()
     {
@@ -50,8 +54,12 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("AttackType",$param) and $param["AttackType"] !== null) {
+            $this->AttackType = $param["AttackType"];
+        }
+
+        if (array_key_exists("Operate",$param) and $param["Operate"] !== null) {
+            $this->Operate = $param["Operate"];
         }
     }
 }

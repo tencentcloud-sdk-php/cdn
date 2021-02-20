@@ -18,24 +18,20 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * DescribeScdnConfig请求参数结构体
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method string getDomain() 获取域名
+ * @method void setDomain(string $Domain) 设置域名
  */
-class DisableCachesRequest extends AbstractModel
+class DescribeScdnConfigRequest extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 域名
      */
-    public $Urls;
+    public $Domain;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @param string $Domain 域名
      */
     function __construct()
     {
@@ -50,8 +46,8 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("Domain",$param) and $param["Domain"] !== null) {
+            $this->Domain = $param["Domain"];
         }
     }
 }

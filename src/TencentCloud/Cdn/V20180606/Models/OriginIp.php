@@ -18,24 +18,20 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * CDN回源节点IP信息
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method string getIp() 获取回源IP段/回源IP，默认返回IP段信息。
+ * @method void setIp(string $Ip) 设置回源IP段/回源IP，默认返回IP段信息。
  */
-class DisableCachesRequest extends AbstractModel
+class OriginIp extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 回源IP段/回源IP，默认返回IP段信息。
      */
-    public $Urls;
+    public $Ip;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @param string $Ip 回源IP段/回源IP，默认返回IP段信息。
      */
     function __construct()
     {
@@ -50,8 +46,8 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("Ip",$param) and $param["Ip"] !== null) {
+            $this->Ip = $param["Ip"];
         }
     }
 }

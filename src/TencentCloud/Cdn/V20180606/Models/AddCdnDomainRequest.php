@@ -98,6 +98,10 @@ global：全球加速
  * @method void setOriginPullTimeout(OriginPullTimeout $OriginPullTimeout) 设置回源超时配置
  * @method array getTag() 获取标签配置
  * @method void setTag(array $Tag) 设置标签配置
+ * @method Ipv6Access getIpv6Access() 获取Ipv6 访问配置
+ * @method void setIpv6Access(Ipv6Access $Ipv6Access) 设置Ipv6 访问配置
+ * @method OfflineCache getOfflineCache() 获取离线缓存
+ * @method void setOfflineCache(OfflineCache $OfflineCache) 设置离线缓存
  */
 class AddCdnDomainRequest extends AbstractModel
 {
@@ -265,6 +269,16 @@ global：全球加速
     public $Tag;
 
     /**
+     * @var Ipv6Access Ipv6 访问配置
+     */
+    public $Ipv6Access;
+
+    /**
+     * @var OfflineCache 离线缓存
+     */
+    public $OfflineCache;
+
+    /**
      * @param string $Domain 域名
      * @param string $ServiceType 加速域名业务类型
 web：静态加速
@@ -304,6 +318,8 @@ global：全球加速
 使用中国境外加速、全球加速时，需要先开通中国境外加速服务
      * @param OriginPullTimeout $OriginPullTimeout 回源超时配置
      * @param array $Tag 标签配置
+     * @param Ipv6Access $Ipv6Access Ipv6 访问配置
+     * @param OfflineCache $OfflineCache 离线缓存
      */
     function __construct()
     {
@@ -471,6 +487,16 @@ global：全球加速
                 $obj->deserialize($value);
                 array_push($this->Tag, $obj);
             }
+        }
+
+        if (array_key_exists("Ipv6Access",$param) and $param["Ipv6Access"] !== null) {
+            $this->Ipv6Access = new Ipv6Access();
+            $this->Ipv6Access->deserialize($param["Ipv6Access"]);
+        }
+
+        if (array_key_exists("OfflineCache",$param) and $param["OfflineCache"] !== null) {
+            $this->OfflineCache = new OfflineCache();
+            $this->OfflineCache->deserialize($param["OfflineCache"]);
         }
     }
 }

@@ -18,24 +18,24 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * 回源鉴权高级配置TypeA
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method string getSecretKey() 获取用于计算签名的密钥，只允许字母和数字，长度6-32字节。
+注意：此字段可能返回 null，表示取不到有效值。
+ * @method void setSecretKey(string $SecretKey) 设置用于计算签名的密钥，只允许字母和数字，长度6-32字节。
+注意：此字段可能返回 null，表示取不到有效值。
  */
-class DisableCachesRequest extends AbstractModel
+class OriginAuthenticationTypeA extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 用于计算签名的密钥，只允许字母和数字，长度6-32字节。
+注意：此字段可能返回 null，表示取不到有效值。
      */
-    public $Urls;
+    public $SecretKey;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @param string $SecretKey 用于计算签名的密钥，只允许字母和数字，长度6-32字节。
+注意：此字段可能返回 null，表示取不到有效值。
      */
     function __construct()
     {
@@ -50,8 +50,8 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("SecretKey",$param) and $param["SecretKey"] !== null) {
+            $this->SecretKey = $param["SecretKey"];
         }
     }
 }

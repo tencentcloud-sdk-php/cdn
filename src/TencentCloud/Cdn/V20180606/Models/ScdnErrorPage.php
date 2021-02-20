@@ -18,24 +18,28 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * DisableCaches请求参数结构体
+ * acl的错误页面
  *
- * @method array getUrls() 获取禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
- * @method void setUrls(array $Urls) 设置禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+ * @method integer getRedirectCode() 获取状态码
+ * @method void setRedirectCode(integer $RedirectCode) 设置状态码
+ * @method string getRedirectUrl() 获取重定向url
+ * @method void setRedirectUrl(string $RedirectUrl) 设置重定向url
  */
-class DisableCachesRequest extends AbstractModel
+class ScdnErrorPage extends AbstractModel
 {
     /**
-     * @var array 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var integer 状态码
      */
-    public $Urls;
+    public $RedirectCode;
 
     /**
-     * @param array $Urls 禁用的 URL 列表（分协议生效，必须包含http://或https://）
-每次最多可提交 100 条，每日最多可提交 3000 条
+     * @var string 重定向url
+     */
+    public $RedirectUrl;
+
+    /**
+     * @param integer $RedirectCode 状态码
+     * @param string $RedirectUrl 重定向url
      */
     function __construct()
     {
@@ -50,8 +54,12 @@ class DisableCachesRequest extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Urls",$param) and $param["Urls"] !== null) {
-            $this->Urls = $param["Urls"];
+        if (array_key_exists("RedirectCode",$param) and $param["RedirectCode"] !== null) {
+            $this->RedirectCode = $param["RedirectCode"];
+        }
+
+        if (array_key_exists("RedirectUrl",$param) and $param["RedirectUrl"] !== null) {
+            $this->RedirectUrl = $param["RedirectUrl"];
         }
     }
 }

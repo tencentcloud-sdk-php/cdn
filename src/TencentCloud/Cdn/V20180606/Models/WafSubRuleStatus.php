@@ -18,7 +18,7 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 门神子规则开关状态
+ * Waf子规则开关状态
  *
  * @method string getSwitch() 获取子规则状态，on|off
  * @method void setSwitch(string $Switch) 设置子规则状态，on|off

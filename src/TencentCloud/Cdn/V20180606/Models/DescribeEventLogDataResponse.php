@@ -18,26 +18,19 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ListTopDDoSData返回参数结构体
+ * DescribeEventLogData返回参数结构体
  *
- * @method array getData() 获取DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
- * @method void setData(array $Data) 设置DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
- * @method array getIPData() 获取ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
- * @method void setIPData(array $IPData) 设置ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+ * @method array getResults() 获取统计曲线结果
+ * @method void setResults(array $Results) 设置统计曲线结果
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ListTopDDoSDataResponse extends AbstractModel
+class DescribeEventLogDataResponse extends AbstractModel
 {
     /**
-     * @var array DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
+     * @var array 统计曲线结果
      */
-    public $Data;
-
-    /**
-     * @var array ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
-     */
-    public $IPData;
+    public $Results;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +38,7 @@ class ListTopDDoSDataResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Data DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
-     * @param array $IPData ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+     * @param array $Results 统计曲线结果
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -62,21 +54,12 @@ class ListTopDDoSDataResponse extends AbstractModel
         if ($param === null) {
             return;
         }
-        if (array_key_exists("Data",$param) and $param["Data"] !== null) {
-            $this->Data = [];
-            foreach ($param["Data"] as $key => $value){
-                $obj = new DDoSTopData();
+        if (array_key_exists("Results",$param) and $param["Results"] !== null) {
+            $this->Results = [];
+            foreach ($param["Results"] as $key => $value){
+                $obj = new EventLogStatsData();
                 $obj->deserialize($value);
-                array_push($this->Data, $obj);
-            }
-        }
-
-        if (array_key_exists("IPData",$param) and $param["IPData"] !== null) {
-            $this->IPData = [];
-            foreach ($param["IPData"] as $key => $value){
-                $obj = new DDoSAttackIPTopData();
-                $obj->deserialize($value);
-                array_push($this->IPData, $obj);
+                array_push($this->Results, $obj);
             }
         }
 

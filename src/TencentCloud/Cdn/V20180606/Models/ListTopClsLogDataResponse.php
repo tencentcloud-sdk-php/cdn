@@ -18,26 +18,33 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ListTopDDoSData返回参数结构体
+ * ListTopClsLogData返回参数结构体
  *
- * @method array getData() 获取DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
- * @method void setData(array $Data) 设置DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
- * @method array getIPData() 获取ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
- * @method void setIPData(array $IPData) 设置ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+ * @method array getData() 获取数据列表
+ * @method void setData(array $Data) 设置数据列表
+ * @method integer getTotalCount() 获取获取到Top总记录数
+ * @method void setTotalCount(integer $TotalCount) 设置获取到Top总记录数
+ * @method integer getIpCount() 获取获取到的不重复IP条数
+ * @method void setIpCount(integer $IpCount) 设置获取到的不重复IP条数
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ListTopDDoSDataResponse extends AbstractModel
+class ListTopClsLogDataResponse extends AbstractModel
 {
     /**
-     * @var array DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
+     * @var array 数据列表
      */
     public $Data;
 
     /**
-     * @var array ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+     * @var integer 获取到Top总记录数
      */
-    public $IPData;
+    public $TotalCount;
+
+    /**
+     * @var integer 获取到的不重复IP条数
+     */
+    public $IpCount;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +52,9 @@ class ListTopDDoSDataResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Data DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
-     * @param array $IPData ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+     * @param array $Data 数据列表
+     * @param integer $TotalCount 获取到Top总记录数
+     * @param integer $IpCount 获取到的不重复IP条数
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -65,19 +73,18 @@ class ListTopDDoSDataResponse extends AbstractModel
         if (array_key_exists("Data",$param) and $param["Data"] !== null) {
             $this->Data = [];
             foreach ($param["Data"] as $key => $value){
-                $obj = new DDoSTopData();
+                $obj = new ClsLogIpData();
                 $obj->deserialize($value);
                 array_push($this->Data, $obj);
             }
         }
 
-        if (array_key_exists("IPData",$param) and $param["IPData"] !== null) {
-            $this->IPData = [];
-            foreach ($param["IPData"] as $key => $value){
-                $obj = new DDoSAttackIPTopData();
-                $obj->deserialize($value);
-                array_push($this->IPData, $obj);
-            }
+        if (array_key_exists("TotalCount",$param) and $param["TotalCount"] !== null) {
+            $this->TotalCount = $param["TotalCount"];
+        }
+
+        if (array_key_exists("IpCount",$param) and $param["IpCount"] !== null) {
+            $this->IpCount = $param["IpCount"];
         }
 
         if (array_key_exists("RequestId",$param) and $param["RequestId"] !== null) {

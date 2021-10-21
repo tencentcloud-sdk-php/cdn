@@ -18,26 +18,45 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * ListTopDDoSData返回参数结构体
+ * DescribeDDoSData返回参数结构体
  *
- * @method array getData() 获取DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
- * @method void setData(array $Data) 设置DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
- * @method array getIPData() 获取ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
- * @method void setIPData(array $IPData) 设置ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+ * @method array getData() 获取DDoS统计数据数组
+ * @method void setData(array $Data) 设置DDoS统计数据数组
+ * @method string getInterval() 获取时间粒度：
+min：1 分钟粒度
+5min：5 分钟粒度
+hour：1 小时粒度
+day：天粒度
+ * @method void setInterval(string $Interval) 设置时间粒度：
+min：1 分钟粒度
+5min：5 分钟粒度
+hour：1 小时粒度
+day：天粒度
+ * @method array getAttackBandwidthData() 获取DDoS统计攻击带宽峰值数组
+ * @method void setAttackBandwidthData(array $AttackBandwidthData) 设置DDoS统计攻击带宽峰值数组
  * @method string getRequestId() 获取唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  * @method void setRequestId(string $RequestId) 设置唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
  */
-class ListTopDDoSDataResponse extends AbstractModel
+class DescribeDDoSDataResponse extends AbstractModel
 {
     /**
-     * @var array DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
+     * @var array DDoS统计数据数组
      */
     public $Data;
 
     /**
-     * @var array ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+     * @var string 时间粒度：
+min：1 分钟粒度
+5min：5 分钟粒度
+hour：1 小时粒度
+day：天粒度
      */
-    public $IPData;
+    public $Interval;
+
+    /**
+     * @var array DDoS统计攻击带宽峰值数组
+     */
+    public $AttackBandwidthData;
 
     /**
      * @var string 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
@@ -45,8 +64,13 @@ class ListTopDDoSDataResponse extends AbstractModel
     public $RequestId;
 
     /**
-     * @param array $Data DDoS 攻击类型的top数据，当Metric=AttackType的时候返回攻击类型的统计数据，IPData为空
-     * @param array $IPData ddos攻击ip的top数据，Metric=AttackIP的时候返回IPData，Data为空
+     * @param array $Data DDoS统计数据数组
+     * @param string $Interval 时间粒度：
+min：1 分钟粒度
+5min：5 分钟粒度
+hour：1 小时粒度
+day：天粒度
+     * @param array $AttackBandwidthData DDoS统计攻击带宽峰值数组
      * @param string $RequestId 唯一请求 ID，每次请求都会返回。定位问题时需要提供该次请求的 RequestId。
      */
     function __construct()
@@ -65,18 +89,22 @@ class ListTopDDoSDataResponse extends AbstractModel
         if (array_key_exists("Data",$param) and $param["Data"] !== null) {
             $this->Data = [];
             foreach ($param["Data"] as $key => $value){
-                $obj = new DDoSTopData();
+                $obj = new DDoSStatsData();
                 $obj->deserialize($value);
                 array_push($this->Data, $obj);
             }
         }
 
-        if (array_key_exists("IPData",$param) and $param["IPData"] !== null) {
-            $this->IPData = [];
-            foreach ($param["IPData"] as $key => $value){
-                $obj = new DDoSAttackIPTopData();
+        if (array_key_exists("Interval",$param) and $param["Interval"] !== null) {
+            $this->Interval = $param["Interval"];
+        }
+
+        if (array_key_exists("AttackBandwidthData",$param) and $param["AttackBandwidthData"] !== null) {
+            $this->AttackBandwidthData = [];
+            foreach ($param["AttackBandwidthData"] as $key => $value){
+                $obj = new DDoSAttackBandwidthData();
                 $obj->deserialize($value);
-                array_push($this->IPData, $obj);
+                array_push($this->AttackBandwidthData, $obj);
             }
         }
 

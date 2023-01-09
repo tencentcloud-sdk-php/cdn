@@ -18,20 +18,20 @@ namespace TencentCloud\Cdn\V20180606\Models;
 use TencentCloud\Common\AbstractModel;
 
 /**
- * 支持 https 请求开关，若关闭，下发配置拦截https请求
+ * HTTPS服务，若关闭，下发配置拦截https请求，开启时会产生计费
  *
- * @method string getSwitch() 获取HTTPS服务
- * @method void setSwitch(string $Switch) 设置HTTPS服务
+ * @method string getSwitch() 获取HTTPS服务，缺省时默认开启【会产生计费】
+ * @method void setSwitch(string $Switch) 设置HTTPS服务，缺省时默认开启【会产生计费】
  */
 class HttpsBilling extends AbstractModel
 {
     /**
-     * @var string HTTPS服务
+     * @var string HTTPS服务，缺省时默认开启【会产生计费】
      */
     public $Switch;
 
     /**
-     * @param string $Switch HTTPS服务
+     * @param string $Switch HTTPS服务，缺省时默认开启【会产生计费】
      */
     function __construct()
     {

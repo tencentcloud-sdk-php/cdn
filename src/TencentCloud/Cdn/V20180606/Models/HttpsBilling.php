@@ -21,18 +21,18 @@ use TencentCloud\Common\AbstractModel;
  * HTTPS服务，若关闭，下发配置拦截https请求，开启时会产生计费
  *
  * @method string getSwitch() 获取HTTPS服务配置开关，取值有：
-on：开启，缺省时默认开启【会产生计费】
+on：开启，缺省时默认开启，会产生计费
 off：关闭，拦截https请求
 
  * @method void setSwitch(string $Switch) 设置HTTPS服务配置开关，取值有：
-on：开启，缺省时默认开启【会产生计费】
+on：开启，缺省时默认开启，会产生计费
 off：关闭，拦截https请求
  */
 class HttpsBilling extends AbstractModel
 {
     /**
      * @var string HTTPS服务配置开关，取值有：
-on：开启，缺省时默认开启【会产生计费】
+on：开启，缺省时默认开启，会产生计费
 off：关闭，拦截https请求
 
      */
@@ -40,7 +40,7 @@ off：关闭，拦截https请求
 
     /**
      * @param string $Switch HTTPS服务配置开关，取值有：
-on：开启，缺省时默认开启【会产生计费】
+on：开启，缺省时默认开启，会产生计费
 off：关闭，拦截https请求
      */
     function __construct()
